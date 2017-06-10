@@ -2,9 +2,11 @@ function save() {
 	var i = document.getElementById('item').value;
 	var e = document.getElementById('size');
 	var s = e.options[e.selectedIndex].value;
+	var w = document.getElementById('watch').checked;
 	chrome.storage.local.set({
 		item: i,
-		size: s
+		size: s,
+		watch: w
 	}, function() {
 		var status = document.getElementById('status');
 		status.textContent = 'saved';
@@ -17,10 +19,12 @@ function save() {
 function load() {
 	chrome.storage.local.get({
 		item: 1,
-		size: 0
+		size: 0,
+		watch: false
 	}, function(r){
 		document.getElementById('item').value = r.item;
 		document.getElementById('size').value = r.size;
+		document.getElementById('watch').checked = r.watch;
 	});
 }
 

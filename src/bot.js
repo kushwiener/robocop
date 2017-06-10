@@ -4,19 +4,25 @@ var bot = {
 	load: function() {
 		chrome.storage.local.get({
 			item: 1,
-			size: 0
+			size: 0,
+			watch: false
 		}, this.init.bind(this));
 	},
 	init(r) {
 		this.item = r.item;
 		this.size = r.size;
-		if (this.size > 0) {
-			document.querySelector('#container > article:nth-child('+this.item+') > div > a').click();
-			this.selectItemSize('select#size', function() {
-				this.clickElements(['#add-remove-buttons > input','#cart > a.button.checkout']);
-			}.bind(this));
+		var el = document.querySelector('#container > article:nth-child('+this.item+') > div > a');
+			if (el) {
+			if (this.size > 0) {
+				document.querySelector('#container > article:nth-child('+this.item+') > div > a').click();
+				this.selectItemSize('select#size', function() {
+					this.clickElements(['#add-remove-buttons > input','#cart > a.button.checkout']);
+				}.bind(this));
+			} else {
+				this.clickElements(['#container > article:nth-child('+this.item+') > div > a','#add-remove-buttons > input','#cart > a.button.checkout']);		
+			}
 		} else {
-			this.clickElements(['#container > article:nth-child('+this.item+') > div > a','#add-remove-buttons > input','#cart > a.button.checkout']);		
+			alert('supreme-bot: item('+this.item+') doesn\'t exist');
 		}
 	},
 	selectItemSize(selector, callback) {
@@ -46,4 +52,22 @@ var bot = {
 		}
 	}
 };
-bot.load();
+
+if (typeof clicked !== 'undefined') {
+	bot.load();
+} else {
+	chrome.storage.local.get({
+		item: 1,
+		size: 0,
+		watch: false
+	}, function(r) {
+		if (r.watch) {
+			var el = document.querySelector('#container > article:nth-child('+r.item+') > div > a');
+			if (!el.classList.contains('sold_out_tag')) {
+				bot.load();
+			} else {
+				setTimeout(function(){location.reload();}, 500);
+			}
+		}
+	});
+}

@@ -12,10 +12,16 @@
       "32": "images/icon32.png"
     }
   },
-  "content_scripts" : [{
-    "matches" : [ "https://www.supremenewyork.com/checkout"],
-    "js" : ["src/checkout.js"]
-  }],
+  "content_scripts" : [
+    {
+      "matches" : [ "https://www.supremenewyork.com/checkout"],
+      "js" : ["src/checkout.js"]
+    },
+    {
+      "matches" : [ "http://www.supremenewyork.com/shop/*"],
+      "js" : ["src/bot.js"]
+    }
+  ],
   "options_page": "src/options.html",
   "permissions": [
     "tabs", 
