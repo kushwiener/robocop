@@ -1,7 +1,8 @@
 {
-  "name": "supreme-bot",
+  "name": "robocop",
   "version": "0.0.1",
   "manifest_version" : 2,
+  "description": "supremenewyork auto-checkout",
   "icons": {
     "16": "img/icon16.png",
     "48": "img/icon48.png",

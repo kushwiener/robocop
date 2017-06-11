@@ -24,6 +24,10 @@
 	display: block;
 }
 
+#container div:last-child button {
+	margin: 1em 0;
+}
+
 #container h1 {
 	font-size: 1.2em;
 }
