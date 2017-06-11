@@ -27,7 +27,11 @@ var bot = {
 		var el = document.querySelector(selector);
 		if (el) {
 			el.value = el.getElementsByTagName('option')[this.size-1].value;
-			callback();
+			if (el.value) {
+				callback();
+			} else {
+				alert('Sorry, the size you wanted is not available.');
+			}
 		} else {
 			setTimeout(function(){this.selectItemSize(selector, callback)}.bind(this), 100);
 		}
