@@ -1,3 +1,11 @@
+#header {
+	margin: 1em 0;
+}
+
+#header > * {
+	display: block;
+}
+
 #container {
 	display: flex;
 	flex-wrap: wrap;
@@ -16,12 +24,22 @@
 	display: block;
 }
 
-h1 {
+#container h1 {
 	font-size: 1.2em;
 }
 
-p {
+#container p {
 	font-size: 1em;
 	font-style: italic;
 	margin: 2em 0;
+}
+
+#warning {
+	max-width: 40em;
+	margin-top: 5em;
+}
+
+#warning h1 {
+	color: red;
+	line-height: 1.5;
 }
