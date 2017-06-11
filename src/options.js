@@ -44,7 +44,7 @@ function save_payment() {
 function load_item() {
 	chrome.storage.local.get({
 		item: 1,
-		size: 0,
+		size: 'none',
 		watch: false
 	}, function(r){
 		document.getElementById('item').value = r.item;

@@ -36,7 +36,7 @@ Anytime you go to the checkout page the extension will automatically enter your 
 
 
 # Disclaimer
-The program can not be held responsible for any accidental loss of comerce. In the event that you order and item that you do not wish to pay for, [contact](http://www.supremenewyork.com/contact) supremenewyork as soon as possible.
+The program can not be held responsible for any accidental loss of commerce. In the event that you order and item that you do not wish to pay for, [contact](http://www.supremenewyork.com/contact) supremenewyork as soon as possible.
 
 
 # License

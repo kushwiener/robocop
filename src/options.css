@@ -6,6 +6,10 @@
 	display: block;
 }
 
+#header a {
+	display: inline;
+}
+
 #container {
 	display: flex;
 	flex-wrap: wrap;
