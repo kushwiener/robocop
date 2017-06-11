@@ -11,7 +11,7 @@ var bot = {
 		this.size = r.size;
 		var el = document.querySelector('#container > article:nth-child('+this.item+') > div > a');
 			if (el) {
-			if (this.size > 0) {
+			if (this.size) {
 				document.querySelector('#container > article:nth-child('+this.item+') > div > a').click();
 				this.selectItemSize('select#size', function() {
 					this.clickElements(['#add-remove-buttons > input','#cart > a.button.checkout']);
@@ -26,10 +26,15 @@ var bot = {
 	selectItemSize(selector, callback) {
 		var el = document.querySelector(selector);
 		if (el) {
-			el.value = el.getElementsByTagName('option')[this.size-1].value;
-			if (el.value) {
-				callback();
-			} else {
+			var hasSize = false;
+			for (var i = 0; i < el.getElementsByTagName('option').length; i++) {
+				if (el.getElementsByTagName('option')[i].text == this.size) {
+					el.value = el.getElementsByTagName('option')[i].value;
+					hasSize = true;
+					callback();
+				}
+			}
+			if (!hasSize) {
 				alert('Sorry, the size you wanted is not available.');
 			}
 		} else {
