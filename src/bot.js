@@ -40,7 +40,6 @@ var bot = {
 			if (el) {
 				el.click();
 				selectors.shift();
-				console.log(selectors.length)
 				if (selectors.length > 0) {
 					this.clickElements(selectors, true);
 				}
@@ -57,15 +56,23 @@ if (typeof clicked !== 'undefined') {
 	chrome.storage.local.get({
 		item: 1,
 		size: 0,
-		watch: false
+		watch: false,
+		isLoading: false
 	}, function(r) {
-		if (r.watch) {
+		if (r.watch && !r.isLoading) {
 			var el = document.querySelector('#container > article:nth-child('+r.item+') > div > a');
 			if (!el.classList.contains('sold_out_tag')) {
+				chrome.storage.local.set({
+					isLoading: true,
+					watch: false
+				});
 				bot.load();
 			} else {
 				setTimeout(function(){location.reload();}, 500);
 			}
+			chrome.storage.local.set({
+				isLoading: false
+			});
 		}
 	});
 }

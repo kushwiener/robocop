@@ -17,7 +17,6 @@ var checkout = {
 		}, this.init.bind(this));
 	},
 	init: function(r) {
-		console.log(r.cType)
 		document.getElementById('order_billing_name').value = r.name;
 		document.getElementById('order_email').value = r.email;
 		document.getElementById('order_tel').value = r.phone;
