@@ -2,28 +2,66 @@
 <html>
 <head>
 	<title>Options</title>
+	<link rel="stylesheet" href="options.css">
 </head>
 <body>
-	<span>Item: </span>
-	<input id="item" type="text" name="item">
-	<br/>
-
-	<span>Size: </span>
-	<select id="size" name="size">
-		<option value="0">none</option>
-		<option value="1">sm</option>
-		<option value="2">md</option>
-		<option value="3">lg</option>
-		<option value="4">xl</option>
-	</select>
-	<br/>
-
-	<span>Auto-reload: </span>
-	<input id="watch" type="checkbox" name="watch">
-	<br/>
-
-	<button id="save">save</button>
-	<div id="status"></div>
+	<div id="container">
+		<div>
+			<h1>Item:</h1>
+			<div>
+				<span>Number: </span>
+				<input id="item" type="text">
+			</div>
+			<div>
+				<span>Size: </span>
+				<select id="size">
+					<option value="0">none</option>
+					<option value="1">Small</option>
+					<option value="2">Medium</option>
+					<option value="3">Large</option>
+					<option value="4">XLarge</option>
+				</select>
+			</div>
+			<div>
+				<span>Auto-reload*: </span>
+				<input id="watch" type="checkbox" name="watch">
+			</div>
+			<div>
+				<button id="save_item">save</button>
+				<div id="status_item"></div>
+			</div>
+			<div>
+				<p>* automatically refresh the shop until selected item is in stock.</p>
+			</div>
+		</div>
+		<div>
+			<h1>Payment:</h1>
+			<input id="name" type="text" placeholder="name">
+			<input id="email" type="text" placeholder="email">
+			<input id="phone" type="text" placeholder="phone">
+			<input id="address" type="text" placeholder="address">
+			<input id="zip" type="text" placeholder="zip">
+			<input id="city" type="text" placeholder="city">
+			<input id="state" type="text" placeholder="state / prov" maxlength="2">
+			<select id="country">
+				<option value="USA">USA</option>
+				<option value="CANADA">CANADA</option>
+			</select>
+			<select id="cType">
+				<option value="visa">Visa</option>
+				<option value="american_express">American Express</option>
+				<option value="master">Mastercard</option>
+			</select>
+			<input id="cNumber" type="text" placeholder="credit card">
+			<input id="expMonth" type="text" placeholder="month" maxlength="2">		
+			<input id="expYear" type="text" placeholder="year" maxlength="4">
+			<input id="cvv" type="text" placeholder="cvv" maxlength="3">
+			<div>
+				<button id="save_payment">save</button>
+				<div id="status_payment"></div>
+			</div>
+		</div>
+	</div>
 	<script type="text/javascript" src="options.js"></script>
 </body>
 </html>

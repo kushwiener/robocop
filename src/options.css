@@ -1,0 +1,27 @@
+#container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#container div:first-child {
+	width: 20em;
+	padding-right: 5em;
+}
+
+#container div:first-child > div {
+	margin: 1em 0;
+}
+
+#container div:last-child input, #container div:last-child select {
+	display: block;
+}
+
+h1 {
+	font-size: 1.2em;
+}
+
+p {
+	font-size: 1em;
+	font-style: italic;
+	margin: 2em 0;
+}

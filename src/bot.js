@@ -1,6 +1,4 @@
 var bot = {
-	item: 0,
-	size: 0,
 	load: function() {
 		chrome.storage.local.get({
 			item: 1,
